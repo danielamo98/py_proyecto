@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import csv
+import openpyxl
 
 
 
@@ -170,3 +171,63 @@ df = pd.read_csv("data.csv")
 st.dataframe(df)
 
 # ejercicio 6 #
+
+st.header("Crea DataFrames desde Archivo Excel (local):")
+st.write("DataFrame de Datos desde Excel")
+
+code ='''
+df = pd.read_excel("data.xlsx")
+st.dataframe(df)
+
+'''
+st.code(code, language="python")
+st.write("Resultado del codigo")
+
+
+
+df = pd.read_excel("data.xlsx")
+st.dataframe(df)
+
+# ejercicio 7 #
+
+st.header("Crea DataFrames desde Archivo Archivo JSON:")
+st.write("Datos de Usuarios desde JSON")
+
+code ='''
+df = pd.read_json("data.json")
+st.dataframe(df)
+
+'''
+st.code(code, language="python")
+st.write("Resultado del codigo")
+
+
+
+df = pd.read_json("data.json")
+st.dataframe(df)
+
+
+st.write("Popover abrir y cerrar")
+code ='''
+with st.popover("clic aquia para ver nombre y correo "):
+    st.markdown(pd.read_json("data.json"))
+'''
+st.code(code, language="python")
+st.write("Resultado del codigo")
+
+with st.popover("clic aquia para ver nombre y correo "):
+    st.markdown(pd.read_json("data.json"))
+   
+ 
+  
+
+
+
+
+
+
+
+
+
+
+
